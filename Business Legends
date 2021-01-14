@@ -48,6 +48,10 @@ game:GetService("ReplicatedStorage").Events.BuyPet:FireServer(A_1)
             local A_1 = "Delete"
 local A_2 = i
 game:GetService("ReplicatedStorage").Events.PetFunc:InvokeServer(A_1, A_2)
+local A_1 = "Owned"
+game:GetService("ReplicatedStorage").Events.PetFunc:InvokeServer(A_1)
+local A_1 = "InventMax"
+game:GetService("ReplicatedStorage").Events.PetFunc:InvokeServer(A_1)
 wait()
 end
         end)
