@@ -3,6 +3,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
    local win = Lib:Window("Business Legends","By: R'lyeh", "B")
     local tab = win:Tab("MAIN")
     local autoupgrade
+    local autohatch
     local shopnumber = {
         ["Supermarket"] = 2,
         ["Chinese Buffet"] = 3,
@@ -20,6 +21,8 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
         shopselect = shopnumber[selected]
     end)
     
+    
+    
     tab:Toggle("Auto-Upgrade",function(upg)
         autoupgrade = upg
         while true do wait()
@@ -27,4 +30,14 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
             game:GetService("ReplicatedStorage").Events.JobEvent:FireServer("Level", shopselect)
         end
         end
+    end)
+    
+    
+    tab:Toggle("Auto-Hatch",function(hatchon)
+        while true do wait()
+            if hatchon then
+        local A_1 = game:GetService("Workspace").PetGivers.SpawnPetShop1
+game:GetService("ReplicatedStorage").Events.BuyPet:FireServer(A_1)
+        end
+    end
         end)
