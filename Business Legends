@@ -16,11 +16,11 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
         ["Bank"] = 10
     }
     local shopselect
+    local petselect
     
     tab:Dropdown("Select",{"Supermarket","Chinese Buffet","Pizza Palace","Hospital","Bakery","Juice Bar","Taco Paradise","Car Factory","Bank"},function(selected)
         shopselect = shopnumber[selected]
     end)
-    
     
     
     tab:Toggle("Auto-Upgrade",function(upg)
@@ -41,4 +41,13 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
 game:GetService("ReplicatedStorage").Events.BuyPet:FireServer(A_1)
         end
     end
+    end)
+    
+    tab:Button("Remove ALL Pets",function()
+        for i = 1,25 do
+            local A_1 = "Delete"
+local A_2 = i
+game:GetService("ReplicatedStorage").Events.PetFunc:InvokeServer(A_1, A_2)
+wait()
+end
         end)
