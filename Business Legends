@@ -1,0 +1,30 @@
+local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San/Library-Scripts/main/Library"))();
+
+   local s = VLib:Window("Business Legends","By: R'lyeh", "B")
+    local ss = s:Tab("MAIN")
+    local autoupgrade
+    local shopnumber = {
+        ["Supermarket"] = 2,
+        ["Chinese Buffet"] = 3,
+        ["Pizza Palace"] = 4,
+        ["Hospital"] = 8,
+        ["Bakery"] = 5,
+        ["Juice Bar"] = 6,
+        ["Taco Paradise"] = 7,
+        ["Car Factory"] = 9,
+        ["Bank"] = 10
+    }
+    local shopselect
+    
+    ss:Dropdown("Select",{"Supermarket","Chinese Buffet","Pizza Palace","Hospital","Bakery","Juice Bar","Taco Paradise","Car Factory","Bank"},function(selected)
+        shopselect = shopnumber[selected]
+    end)
+    
+    ss:Toggle("Auto-Upgrade",function(upg)
+        autoupgrade = upg
+        while true do wait()
+        if autoupgrade then
+            game:GetService("ReplicatedStorage").Events.JobEvent:FireServer("Level", shopselect)
+        end
+        end
+        end)
