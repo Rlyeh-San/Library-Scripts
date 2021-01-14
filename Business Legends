@@ -3,7 +3,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
    local win = Lib:Window("Business Legends","By: R'lyeh", "B")
     local tab = win:Tab("MAIN")
     local autoupgrade
-    local autohatch
+    local autohatchnumber
     local shopnumber = {
         ["Supermarket"] = 2,
         ["Chinese Buffet"] = 3,
@@ -32,15 +32,15 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
         end
     end)
     
+    tab:Slider("Egg Quantity",1,25,1,function(change)
+        autohatchnumber = change
+        end)
     
-    tab:Toggle("Auto-Hatch",function(hatchon)
-        autohatch = hatchon
-        while true do wait()
-            if autohatch then
+    tab:Button("Auto-Hatch",function()
+        for i = 1,autohatchnumber do
         local A_1 = game:GetService("Workspace").PetGivers.SpawnPetShop1
 game:GetService("ReplicatedStorage").Events.BuyPet:FireServer(A_1)
-        end
-    end
+ end
     end)
     
     tab:Button("Remove ALL Pets",function()
