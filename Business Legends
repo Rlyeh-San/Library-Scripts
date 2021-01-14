@@ -34,8 +34,9 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
     
     
     tab:Toggle("Auto-Hatch",function(hatchon)
+        autohatch = hatchon
         while true do wait()
-            if hatchon then
+            if autohatch then
         local A_1 = game:GetService("Workspace").PetGivers.SpawnPetShop1
 game:GetService("ReplicatedStorage").Events.BuyPet:FireServer(A_1)
         end
