@@ -36,7 +36,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San
         autohatchnumber = change
         end)
     
-    tab:Button("Auto-Hatch",function()
+    tab:Button("Hatch Egg",function()
         for i = 1,autohatchnumber do
         local A_1 = game:GetService("Workspace").PetGivers.SpawnPetShop1
 game:GetService("ReplicatedStorage").Events.BuyPet:FireServer(A_1)
