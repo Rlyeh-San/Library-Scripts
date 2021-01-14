@@ -1,7 +1,7 @@
-local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San/Library-Scripts/main/Library"))();
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-San/Library-Scripts/main/Library"))();
 
-   local s = VLib:Window("Business Legends","By: R'lyeh", "B")
-    local ss = s:Tab("MAIN")
+   local win = Lib:Window("Business Legends","By: R'lyeh", "B")
+    local tab = win:Tab("MAIN")
     local autoupgrade
     local shopnumber = {
         ["Supermarket"] = 2,
@@ -16,11 +16,11 @@ local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rlyeh-Sa
     }
     local shopselect
     
-    ss:Dropdown("Select",{"Supermarket","Chinese Buffet","Pizza Palace","Hospital","Bakery","Juice Bar","Taco Paradise","Car Factory","Bank"},function(selected)
+    tab:Dropdown("Select",{"Supermarket","Chinese Buffet","Pizza Palace","Hospital","Bakery","Juice Bar","Taco Paradise","Car Factory","Bank"},function(selected)
         shopselect = shopnumber[selected]
     end)
     
-    ss:Toggle("Auto-Upgrade",function(upg)
+    tab:Toggle("Auto-Upgrade",function(upg)
         autoupgrade = upg
         while true do wait()
         if autoupgrade then
